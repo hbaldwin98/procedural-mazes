@@ -22,8 +22,8 @@ public class Sidewinder
         
         // if we're at the eastern boundary, then we need to
         // open up a new run to the north.
-        // if we're at the northern boundary, then we need to
-        // open up a new run to the east.
+        // otherwise, we flip a coin to decide whether to link a cell to the north
+        // and start a new run.
         bool shouldCloseOut = atEasternBoundary || (!atNorthernBoundary && new Random().Next(2) == 0);
         
         if (shouldCloseOut)
@@ -36,7 +36,8 @@ public class Sidewinder
         }
         else
         {
-          // link the cell to the cell to the east.
+          // if we don't open a new run,
+          // link the current cell to the cell to the east.
           cell.Link(cell["east"]);
         }
       }
