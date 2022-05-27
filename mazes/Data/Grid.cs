@@ -113,8 +113,7 @@ public class Grid
       output += top + "\n";
       output += bottom + "\n";
     }
-
-    Console.WriteLine(output);
+    
     return output;
   }
 }
